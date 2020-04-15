@@ -127,7 +127,7 @@ if isempty(ARGS) || haskey(opts, :help)
     # will count as a failure
     exit(1)
 end
-format(ARGS; opts...)
+format(ARGS, style=YASSStyle(); opts...)
 
 out = Cmd(`git diff --name-only`) |> read |> String
 if out == ""
